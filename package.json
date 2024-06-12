@@ -2,13 +2,21 @@
   "name": "chelr",
   "version": "0.0.1",
   "description": "payment integration made easy",
+  "type": "module",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": ""
   },
-  "author": "",
+  "author": "chelr",
   "license": "ISC",
   "dependencies": {
+    "@clack/core": "^0.3.4",
+    "@clack/prompts": "^0.7.0",
     "commander": "^12.1.0"
+  },
+  "devDependencies": {
+    "webpack": "^5.92.0",
+    "webpack-cli": "^5.1.4"
   }
 }

@@ -1,5 +1,5 @@
 import { Command } from "commander";
-// import Generate from "./generate";
+import Generate from "./cmd/generate.js";
 
 const program = new Command();
 
@@ -10,7 +10,9 @@ program
 
 program.command("ping").action(() => console.log("pong"));
 
-program.command("generate").description("generate chelr app");
-//   .action(Generate());
+program
+  .command("generate")
+  .description("generate chelr app")
+  .action(Generate());
 
 program.parse();
