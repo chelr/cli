@@ -2,6 +2,7 @@ import { Command } from "commander";
 import { intro, text, outro, select, multiselect } from "@clack/prompts";
 
 const program = new Command();
+var options_chosen = [];
 
 program
   .name("chelr")
@@ -21,6 +22,14 @@ program
       placeholder: "awesome-chelr-project",
     });
 
+    const project_language_choice = await multiselect({
+      message: "Language: ",
+      options: [
+        {value: "typescript", label: "Typescript (ts)", hint: "popular"},
+        {value: "javascript", label: "Javascript (js)"},
+      ]
+    })
+
     const payment_choices = await multiselect({
       message: "Pick ur payment methods: ",
       options: [
@@ -30,7 +39,11 @@ program
       ],
     });
 
-    console.log(project_name, payment_choices);
+    options_chosen.push(project_name);
+    options_chosen.push(project_language_choice);
+    options_chosen.push(payment_choices);
+
+    console.log(options_chosen);
 
     outro("chelr integrated, have fun building the rest of your app.");
   });
